@@ -1,0 +1,10 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Edgio IDE / editor
+.vscode/
+.idea/
+
+# OS sync artifacts (OneDrive)
+~*.tmp
