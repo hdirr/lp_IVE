@@ -8,3 +8,6 @@ Desktop.ini
 
 # OS sync artifacts (OneDrive)
 ~*.tmp
+
+# Documentos internos de trabalho (fora da publicação/site)
+docs/
