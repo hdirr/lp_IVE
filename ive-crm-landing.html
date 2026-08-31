@@ -136,11 +136,9 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:#111D15;backdr
 
 /* Trust Strip */
 .trust-strip{margin-top:64px;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);background:linear-gradient(135deg,rgba(47,187,174,.06),rgba(231,163,62,.05) 60%,transparent);padding:40px 0;}
-.trust-inner{display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
-.trust-message{max-width:460px;display:flex;flex-direction:column;gap:6px;}
-.trust-label{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);display:flex;align-items:center;gap:10px;font-weight:600;}
-.trust-label::before{content:"";width:26px;height:2px;background:linear-gradient(90deg,var(--amber),var(--teal));border-radius:2px;}
-.trust-txt{font-family:var(--font-body);font-size:1.05rem;font-weight:500;color:var(--paper);line-height:1.6;}
+.trust-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.trust-message{min-width:0;}
+.trust-txt{font-family:var(--font-body);font-size:1rem;font-weight:500;color:var(--paper);line-height:1.4;white-space:nowrap;}
 .trust-logos{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
 .soc-logo{width:26px;height:26px;fill:currentColor;color:var(--paper);padding:0;transition:all .3s ease;cursor:pointer;}
 .soc-badge{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:16px;background:rgba(255,255,255,.04);border:1px solid var(--line-dark);transition:all .3s cubic-bezier(.4,0,.2,1);cursor:pointer;}
@@ -176,6 +174,9 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:#111D15;backdr
 .pain-flip{margin-top:44px;background:linear-gradient(135deg,var(--indigo),#1A2A1E);color:var(--paper);border-radius:var(--radius);padding:36px 40px;font-family:var(--font-display);font-size:clamp(1.2rem,2vw,1.5rem);line-height:1.4;position:relative;overflow:hidden;}
 .pain-flip::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(47,187,174,.15),transparent 50%),radial-gradient(circle at 20% 80%,rgba(231,163,62,.1),transparent 50%);pointer-events:none;}
 .pain-flip span{color:var(--teal);position:relative;z-index:1;}
+.pain-flip.flip-light{background:var(--paper);color:var(--indigo);border:1px solid var(--line);box-shadow:0 20px 50px -30px rgba(17,29,21,.35);}
+.pain-flip.flip-light::before{background:radial-gradient(circle at 85% 15%,rgba(47,187,174,.12),transparent 45%),radial-gradient(circle at 15% 85%,rgba(231,163,62,.12),transparent 45%);}
+.pain-flip.flip-light span{color:var(--amber-deep);}
 
 /* ============ PILARES ============ */
 .pillars{background:var(--paper-2);position:relative;overflow:hidden;}
@@ -487,8 +488,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
     <a href="#" class="logo"><img src="logos-ive/logo-ive-simplesbranco.png" alt="IVE — Inteligência em Vendas" height="36" style="height:36px;width:auto;display:block;"></a>
     <nav class="nav-links"><a href="#produto">Produto</a><a href="#diferencial">Como funciona</a><a href="#integracoes">Integrações</a><a href="#planos">Planos</a><a href="#faq">Dúvidas</a></nav>
     <div class="nav-cta">
-      <a href="#qualificacao" class="btn btn-ghost btn-sm">Falar com especialista</a>
-      <a href="#qualificacao" class="btn btn-primary btn-sm">Conhecer o IVE CRM</a>
+      <a href="#qualificacao" class="btn btn-primary btn-sm">Falar com especialista</a>
     </div>
     <button class="nav-toggle" aria-label="Menu" onclick="toggleMobileMenu()">☰</button>
   </div>
@@ -555,7 +555,6 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
     <div class="trust-strip">
       <div class="wrap trust-inner">
         <div class="trust-message">
-          <span class="trust-label">Todo o seu atendimento em um só lugar</span>
           <span class="trust-txt">Você, sua equipe e todos os seus canais de atendimento em um único lugar.</span>
         </div>
         <div class="trust-logos">
@@ -581,7 +580,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
       <div class="pain-card"><div class="ico">05</div><p>Dificuldade de medir atendimento, produtividade e andamento real das oportunidades.</p></div>
       <div class="pain-card"><div class="ico">06</div><p>Cada ferramenta nova promete resolver, mas nenhuma se conecta ao seu processo de fato.</p></div>
     </div>
-    <div class="pain-flip glass-dark reveal">Sua empresa não precisa se adaptar ao CRM. <span>O CRM e as automações precisam se adaptar ao processo da sua empresa.</span></div>
+    <div class="pain-flip flip-light reveal">Sua empresa não precisa se adaptar ao CRM. <span>O CRM e as automações precisam se adaptar ao processo da sua empresa.</span></div>
     <div class="section-cta reveal"><p>Identificou algum desses problemas?</p><a href="#qualificacao" class="btn btn-primary btn-sm">Vamos conversar sobre sua operação</a></div>
   </div>
 </section>
@@ -589,7 +588,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- PILARES -->
 <section class="pillars" id="produto">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Uma solução, quatro pilares trabalhando juntos.</h2><p>Atendimento, vendas, automação e IA — não como módulos separados, mas como um único processo.</p></div>
+    <div class="section-head reveal"><h2>Uma solução, quatro pilares trabalhando juntos.</h2><p>Atendimento, vendas, automação e IA — não como módulos separados, mas como um único processo.</p></div>
     <div class="pillar-grid">
       <div class="pillar"><div class="pillar-shot"><div class="tag">Caixa de entrada</div></div><div class="pillar-body"><span class="num">PILAR 01</span><h3>Atendimento</h3><p>WhatsApp e canais centralizados, múltiplos atendentes, departamentos e transferência.</p></div></div>
       <div class="pillar"><div class="pillar-shot"><div class="tag">Funil de vendas</div></div><div class="pillar-body"><span class="num">PILAR 02</span><h3>CRM e Vendas</h3><p>Contatos, oportunidades, funil, responsáveis e gestão completa do comercial.</p></div></div>
@@ -603,7 +602,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- DIFERENCIAL -->
 <section class="diff" id="diferencial">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Mais do que contratar uma plataforma, você recebe uma solução implantada para sua operação.</h2></div>
+    <div class="section-head reveal"><h2>Mais do que contratar uma plataforma, você recebe uma solução implantada para sua operação.</h2></div>
     <div class="process">
       <svg class="process-line" viewBox="0 0 2 500" preserveAspectRatio="none" style="position:absolute;left:24px;top:16px;bottom:16px;width:2px;height:calc(100% - 32px);"><line class="flow-line" x1="1" y1="0" x2="1" y2="500"/></svg>
       <div class="step reveal"><div class="step-num">01</div><div class="step-body"><h4>Entendemos sua empresa</h4><p>Atendimento, processo comercial, equipe, ferramentas, gargalos e objetivos.</p></div></div>
@@ -623,7 +622,6 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
   <div class="wrap">
     <div class="int-layout">
       <div class="reveal">
-        <div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div>
         <h2>Conectamos o IVE CRM às ferramentas que já fazem parte da sua operação.</h2>
         <p style="margin-top:16px;margin-bottom:28px;">Não entregamos só uma API disponível — nós fazemos a integração para você.</p>
         <div class="int-chips"><span class="chip">WhatsApp</span><span class="chip">Instagram</span><span class="chip">Google Calendar</span><span class="chip">ERPs</span><span class="chip">APIs externas</span><span class="chip">Bancos de dados</span><span class="chip">Planilhas</span><span class="chip">Sistemas internos</span></div>
@@ -641,7 +639,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- PLANOS -->
 <section class="plans" id="planos">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Uma estrutura para cada estágio da sua automação.</h2>
+    <div class="section-head reveal"><h2>Uma estrutura para cada estágio da sua automação.</h2>
       <div class="price-anchor"><span class="from">a partir de</span><span class="val" id="priceValue">R$ 489</span><span class="per">/mês · 3 usuários incluídos</span></div>
       <div class="plan-toggle"><span class="plan-toggle-label active" id="labelMensal" onclick="togglePlan(false)">Mensal</span><button class="plan-toggle-switch" id="planSwitch" onclick="togglePlan()" aria-label="Alternar plano"></button><span class="plan-toggle-label" id="labelAnual" onclick="togglePlan(true)">Anual</span><span class="plan-toggle-badge">Economize 20%</span></div>
       <p>Valores completos e escopo de implantação são definidos após conversa de diagnóstico.</p>
@@ -659,7 +657,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- AUDIENCE -->
 <section class="audience">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Se sua operação se parece com alguma dessas situações, provavelmente conversamos.</h2></div>
+    <div class="section-head reveal"><h2>Se sua operação se parece com alguma dessas situações, provavelmente conversamos.</h2></div>
     <div class="audience-grid">
       <div class="audience-item"><span class="dot"></span>Empresas que atendem pelo WhatsApp</div>
       <div class="audience-item"><span class="dot"></span>Operações com uma ou mais pessoas no comercial</div>
@@ -677,7 +675,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- PROVA -->
 <section class="proof">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Como a implantação muda a operação, na prática.</h2><p>Estrutura de case a ser preenchida com dados reais e autorizados.</p></div>
+    <div class="section-head reveal"><h2>Como a implantação muda a operação, na prática.</h2><p>Estrutura de case a ser preenchida com dados reais e autorizados.</p></div>
     <div class="case-card reveal perspective-card">
       <div class="case-col"><div class="eyebrow">Antes</div><p>[Problema real: demora no atendimento, desorganização, follow-up manual.]</p></div>
       <div class="case-col"><div class="eyebrow">O que a IVE implantou</div><p>[CRM + IA + automação + integrações + estruturação do processo.]</p></div>
@@ -692,7 +690,6 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
   <div class="wrap">
     <div class="qualify-grid">
       <div class="reveal">
-        <div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div>
         <h2 style="margin-bottom:24px;">Fale sobre sua operação. A IA já começa a trabalhar.</h2>
         <div class="form-card glass">
           <div class="form-progress"><div class="form-progress-bar"><div class="form-progress-step active" id="prog1"></div><div class="form-progress-step" id="prog2"></div><div class="form-progress-step" id="prog3"></div></div><div class="form-progress-label"><span class="active" id="progLabel1">Seus dados</span><span id="progLabel2">Sua operação</span><span id="progLabel3">Necessidades</span></div></div>
@@ -727,7 +724,6 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
         </div>
       </div>
       <div class="reveal">
-        <div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div>
         <h2 style="margin-bottom:24px;font-size:1.8rem;">O próprio formulário já é uma demonstração.</h2>
         <div class="journey">
           <div class="journey-step"><div class="journey-ico">01</div><p>Você envia e o IVE CRM registra o contato na hora.</p></div>
