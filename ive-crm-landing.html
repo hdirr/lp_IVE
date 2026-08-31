@@ -197,7 +197,31 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:#111D15;backdr
 .pillar:nth-child(2) .pillar-shot{background:linear-gradient(135deg,#EEF2FA,#E3E9F8);}
 .pillar:nth-child(3) .pillar-shot{background:linear-gradient(135deg,#FFF8ED,#FEF0DA);}
 .pillar:nth-child(4) .pillar-shot{background:linear-gradient(135deg,#F0F9FF,#E0F2FE);}
-.pillar-shot .tag{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--slate-light);background:rgba(255,255,255,.7);padding:8px 14px;border-radius:999px;backdrop-filter:blur(8px);}
+.pillar-shot .tag{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.08em;text-transform:uppercase;color:var(--slate-light);background:rgba(255,255,255,.7);padding:8px 14px;border-radius:999px;backdrop-filter:blur(8px);position:absolute;top:14px;left:14px;z-index:2;font-weight:600;color:var(--ink-soft);}
+
+/* ============ PILLAR IMAGE + ZOOM ============ */
+.pillar-shot{display:block;cursor:zoom-in;}
+.pillar-shot img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0;transition:transform .55s cubic-bezier(.4,0,.2,1);}
+.pillar:hover .pillar-shot img{transform:scale(1.05);}
+.pillar-shot .zoom-hint{position:absolute;right:14px;bottom:14px;z-index:2;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:rgba(17,29,21,.45);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);opacity:0;transform:translateY(6px);transition:all .3s cubic-bezier(.4,0,.2,1);}
+.pillar:hover .zoom-hint{opacity:1;transform:none;color:var(--amber);border-color:rgba(231,163,62,.5);}
+.pillar-shot::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(17,29,21,.18),transparent 40%);pointer-events:none;}
+
+/* ============ LIGHTBOX ============ */
+.lightbox{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;background:rgba(17,29,21,.94);backdrop-filter:blur(6px);padding:40px;}
+.lightbox.open{display:flex;animation:lbFade .25s ease;}
+@keyframes lbFade{from{opacity:0;}to{opacity:1;}}
+.lightbox-figure{margin:0;max-width:96vw;max-height:86vh;text-align:center;animation:lbZoom .3s cubic-bezier(.4,0,.2,1);}
+@keyframes lbZoom{from{opacity:0;transform:scale(.96);}to{opacity:1;transform:none;}}
+.lightbox-figure img{max-width:90vw;max-height:74vh;width:auto;height:auto;object-fit:contain;border-radius:var(--radius-sm);box-shadow:0 40px 90px -30px rgba(0,0,0,.6);}
+.lightbox-figcaption{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-light);margin-top:16px;font-weight:600;}
+.lightbox .lb-close{position:absolute;top:22px;right:26px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;font-size:1.4rem;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s ease;}
+.lightbox .lb-close:hover{background:var(--amber);border-color:var(--amber);color:var(--ink-soft);}
+.lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s ease;}
+.lightbox .lb-nav:hover{background:var(--teal);border-color:var(--teal);color:var(--ink-soft);}
+.lightbox .lb-prev{left:24px;}
+.lightbox .lb-next{right:24px;}
+@media(max-width:720px){.lightbox .lb-nav{width:42px;height:42px;} .lightbox .lb-prev{left:10px;} .lightbox .lb-next{right:10px;}}
 .pillar-body{padding:24px 24px 28px;}
 .pillar-body .num{font-family:var(--font-mono);font-size:.7rem;color:var(--teal);font-weight:700;margin-bottom:10px;display:block;letter-spacing:.08em;}
 .pillar-body h3{margin-bottom:10px;font-size:1.15rem;transition:color .3s ease;}
@@ -590,10 +614,10 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
   <div class="wrap">
     <div class="section-head reveal"><h2>Uma solução, quatro pilares trabalhando juntos.</h2><p>Atendimento, vendas, automação e IA — não como módulos separados, mas como um único processo.</p></div>
     <div class="pillar-grid">
-      <div class="pillar"><div class="pillar-shot"><div class="tag">Caixa de entrada</div></div><div class="pillar-body"><span class="num">PILAR 01</span><h3>Atendimento</h3><p>WhatsApp e canais centralizados, múltiplos atendentes, departamentos e transferência.</p></div></div>
-      <div class="pillar"><div class="pillar-shot"><div class="tag">Funil de vendas</div></div><div class="pillar-body"><span class="num">PILAR 02</span><h3>CRM e Vendas</h3><p>Contatos, oportunidades, funil, responsáveis e gestão completa do comercial.</p></div></div>
-      <div class="pillar"><div class="pillar-shot"><div class="tag">Automação</div></div><div class="pillar-body"><span class="num">PILAR 03</span><h3>Automação</h3><p>Follow-ups, mensagens programadas e ações automáticas do processo interno.</p></div></div>
-      <div class="pillar"><div class="pillar-shot"><div class="tag">IA em ação</div></div><div class="pillar-body"><span class="num">PILAR 04</span><h3>Inteligência Artificial</h3><p>IA atendendo, qualificando, executando tarefas e alimentando o CRM.</p></div></div>
+      <div class="pillar"><a class="pillar-shot" href="pilares-img/PILAR_01.png" data-lightbox="0"><img src="pilares-img/PILAR_01.png" alt="Caixa de entrada do IVE CRM" loading="lazy"><div class="tag">Caixa de entrada</div><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10.5 4a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM20 20l-4.3-4.3M8.5 10.5h4M10.5 8.5v4"/></svg></span></a><div class="pillar-body"><span class="num">PILAR 01</span><h3>Atendimento</h3><p>WhatsApp e canais centralizados, múltiplos atendentes, departamentos e transferência.</p></div></div>
+      <div class="pillar"><a class="pillar-shot" href="pilares-img/PILAR_02.png" data-lightbox="1"><img src="pilares-img/PILAR_02.png" alt="Funil de vendas do IVE CRM" loading="lazy"><div class="tag">Funil de vendas</div><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10.5 4a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM20 20l-4.3-4.3M8.5 10.5h4M10.5 8.5v4"/></svg></span></a><div class="pillar-body"><span class="num">PILAR 02</span><h3>CRM e Vendas</h3><p>Contatos, oportunidades, funil, responsáveis e gestão completa do comercial.</p></div></div>
+      <div class="pillar"><a class="pillar-shot" href="pilares-img/PILAR_03.png" data-lightbox="2"><img src="pilares-img/PILAR_03.png" alt="Automação do IVE CRM" loading="lazy"><div class="tag">Automação</div><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10.5 4a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM20 20l-4.3-4.3M8.5 10.5h4M10.5 8.5v4"/></svg></span></a><div class="pillar-body"><span class="num">PILAR 03</span><h3>Automação</h3><p>Follow-ups, mensagens programadas e ações automáticas do processo interno.</p></div></div>
+      <div class="pillar"><a class="pillar-shot" href="pilares-img/PILAR_04.png" data-lightbox="3"><img src="pilares-img/PILAR_04.png" alt="IA em ação no IVE CRM" loading="lazy"><div class="tag">IA em ação</div><span class="zoom-hint" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10.5 4a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM20 20l-4.3-4.3M8.5 10.5h4M10.5 8.5v4"/></svg></span></a><div class="pillar-body"><span class="num">PILAR 04</span><h3>Inteligência Artificial</h3><p>IA atendendo, qualificando, executando tarefas e alimentando o CRM.</p></div></div>
     </div>
     <div class="section-cta reveal"><p>Quer ver na prática?</p><a href="#qualificacao" class="btn btn-teal btn-sm">Agendar demonstração</a></div>
   </div>
@@ -602,7 +626,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- DIFERENCIAL -->
 <section class="diff" id="diferencial">
   <div class="wrap">
-    <div class="section-head reveal"><h2>Mais do que contratar uma plataforma, você recebe uma solução implantada para sua operação.</h2></div>
+    <div class="section-head reveal"><h2>Mais do que um CRM, você recebe uma solução implantada para sua operação.</h2></div>
     <div class="process">
       <svg class="process-line" viewBox="0 0 2 500" preserveAspectRatio="none" style="position:absolute;left:24px;top:16px;bottom:16px;width:2px;height:calc(100% - 32px);"><line class="flow-line" x1="1" y1="0" x2="1" y2="500"/></svg>
       <div class="step reveal"><div class="step-num">01</div><div class="step-body"><h4>Entendemos sua empresa</h4><p>Atendimento, processo comercial, equipe, ferramentas, gargalos e objetivos.</p></div></div>
@@ -639,7 +663,8 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- PLANOS -->
 <section class="plans" id="planos">
   <div class="wrap">
-    <div class="section-head reveal"><h2>Uma estrutura para cada estágio da sua automação.</h2>
+    <div class="section-head reveal"><h2>Conheça nossos Agentes de IA</h2>
+      <p>Abaixo: planos a partir de R$ 489/mês.</p>
       <div class="price-anchor"><span class="from">a partir de</span><span class="val" id="priceValue">R$ 489</span><span class="per">/mês · 3 usuários incluídos</span></div>
       <div class="plan-toggle"><span class="plan-toggle-label active" id="labelMensal" onclick="togglePlan(false)">Mensal</span><button class="plan-toggle-switch" id="planSwitch" onclick="togglePlan()" aria-label="Alternar plano"></button><span class="plan-toggle-label" id="labelAnual" onclick="togglePlan(true)">Anual</span><span class="plan-toggle-badge">Economize 20%</span></div>
       <p>Valores completos e escopo de implantação são definidos após conversa de diagnóstico.</p>
@@ -782,6 +807,16 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <div class="floating-cta"><a href="#qualificacao" class="btn btn-primary">Falar com especialista</a></div>
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Voltar ao topo">↑</button>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada">
+  <button class="lb-close" id="lbClose" aria-label="Fechar">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <figure class="lightbox-figure">
+    <img id="lbImg" src="" alt="">
+    <figcaption class="lightbox-figcaption" id="lbCaption"></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Próxima">›</button>
+</div>
+
 <script>
 // Mouse Glow
 var glow=document.getElementById('mouseGlow');
@@ -912,6 +947,61 @@ showStep(1);
 
   wrap.addEventListener('mouseenter',stop);
   wrap.addEventListener('mouseleave',restart);
+})();
+
+// Lightbox — ampliar imagens dos pilares
+(function(){
+  var box=document.getElementById('lightbox');
+  if(!box)return;
+  var img=document.getElementById('lbImg');
+  var cap=document.getElementById('lbCaption');
+  var shots=Array.prototype.slice.call(document.querySelectorAll('.pillar-shot[data-lightbox]'));
+  if(!shots.length)return;
+  var current=0,lastFocused=null;
+  var captions=shots.map(function(s){var t=s.querySelector('.tag');return t?t.textContent:'Pilar IVE CRM';});
+
+  function buildHref(src){return src.replace(/^https?:/,'');}
+
+  function show(i){
+    current=(i+shots.length)%shots.length;
+    var s=shots[current];
+    var href=s.getAttribute('href');
+    img.src=buildHref(href);
+    img.alt=s.getAttribute('alt')||'Imagem IVE CRM';
+    cap.textContent=captions[current];
+  }
+  window.openLightbox=function(i){
+    current=parseInt(i,10)||0;
+    lastFocused=document.activeElement;
+    show(current);
+    box.classList.add('open');
+    document.body.style.overflow='hidden';
+    document.getElementById('lbClose').focus();
+  };
+  window.closeLightbox=function(){
+    if(!box.classList.contains('open'))return;
+    box.classList.remove('open');
+    document.body.style.overflow='';
+    if(lastFocused)lastFocused.focus();
+  };
+  window.lbNext=function(){show(current+1);};
+  window.lbPrev=function(){show(current-1);};
+
+  shots.forEach(function(s){s.addEventListener('click',function(e){
+    e.preventDefault();
+    var idx=s.getAttribute('data-lightbox');
+    window.openLightbox(idx);
+  });});
+  document.getElementById('lbClose').addEventListener('click',closeLightbox);
+  document.getElementById('lbNext').addEventListener('click',lbNext);
+  document.getElementById('lbPrev').addEventListener('click',lbPrev);
+  box.addEventListener('click',function(e){if(e.target===box)closeLightbox();});
+  document.addEventListener('keydown',function(e){
+    if(!box.classList.contains('open'))return;
+    if(e.key==='Escape')closeLightbox();
+    else if(e.key==='ArrowRight')lbNext();
+    else if(e.key==='ArrowLeft')lbPrev();
+  });
 })();
 </script>
 </body>
