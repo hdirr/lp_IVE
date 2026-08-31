@@ -95,6 +95,11 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:#111D15;backdr
 .hero-copy h1{color:var(--paper);}
 .hero-copy h1 em{font-style:normal;position:relative;display:inline;}
 .hero-sub{margin-top:24px;font-size:1.15rem;color:#CBD1DF;max-width:540px;line-height:1.7;}
+.hero-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+.hero-list li{display:flex;align-items:flex-start;gap:12px;}
+.hero-list .list-dot{flex:none;width:10px;height:10px;border-radius:50%;margin-top:8px;background:linear-gradient(135deg,var(--teal),var(--amber));box-shadow:0 0 10px rgba(47,187,174,.5);}
+.hero-list strong{color:var(--paper);font-weight:600;}
+.hero-list em{font-style:normal;color:var(--amber);font-weight:700;}
 .hero-ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;}
 .hero-meta{display:flex;gap:32px;margin-top:44px;padding-top:28px;border-top:1px solid var(--line-dark);flex-wrap:wrap;}
 .hero-meta div{font-family:var(--font-mono);font-size:.78rem;color:#8A92A8;}
@@ -507,7 +512,12 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
     <div class="hero-grid">
       <div class="hero-copy">
         <h1><span class="gradient-text" id="typewriter"></span><span class="typing-cursor"></span></h1>
-        <p class="hero-sub">Centralize os atendimentos, organize o processo comercial e automatize tarefas com uma solução implantada e totalmente personalizada para sua empresa.</p>
+        <ul class="hero-sub hero-list">
+          <li><span class="list-dot"></span><span><strong>Atendimentos <em>automáticos</em> e centralizados</strong></span></li>
+          <li><span class="list-dot"></span><span><strong>Agentes de IA</strong> + automatização de tarefas</span></li>
+          <li><span class="list-dot"></span><span><strong>Organização do processo comercial</strong></span></li>
+          <li><span class="list-dot"></span><span><strong>Implantação <em>personalizada</em></strong> para sua empresa</span></li>
+        </ul>
         <div class="hero-ctas">
           <a href="#qualificacao" class="btn btn-primary btn-pulse btn-shine">Quero uma solução para minha empresa</a>
           <a href="#produto" class="btn btn-ghost">Ver como funciona ↓</a>
@@ -541,7 +551,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- DOR -->
 <section class="pain" id="dor">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">O problema real</div><h2>Seu problema pode não ser falta de ferramentas. Pode ser falta de um processo conectado.</h2></div>
+    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Seu problema pode não ser falta de ferramentas. Pode ser falta de um processo conectado.</h2></div>
     <div class="pain-grid">
       <div class="pain-card"><div class="ico">01</div><p>Leads esperando resposta e oportunidades perdidas por demora no atendimento.</p></div>
       <div class="pain-card"><div class="ico">02</div><p>Conversas espalhadas entre WhatsApps, atendentes e departamentos diferentes.</p></div>
@@ -558,7 +568,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- PILARES -->
 <section class="pillars" id="produto">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">O IVE CRM na prática</div><h2>Uma solução, quatro pilares trabalhando juntos.</h2><p>Atendimento, vendas, automação e IA — não como módulos separados, mas como um único processo.</p></div>
+    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Uma solução, quatro pilares trabalhando juntos.</h2><p>Atendimento, vendas, automação e IA — não como módulos separados, mas como um único processo.</p></div>
     <div class="pillar-grid">
       <div class="pillar"><div class="pillar-shot"><div class="tag">Caixa de entrada</div></div><div class="pillar-body"><span class="num">PILAR 01</span><h3>Atendimento</h3><p>WhatsApp e canais centralizados, múltiplos atendentes, departamentos e transferência.</p></div></div>
       <div class="pillar"><div class="pillar-shot"><div class="tag">Funil de vendas</div></div><div class="pillar-body"><span class="num">PILAR 02</span><h3>CRM e Vendas</h3><p>Contatos, oportunidades, funil, responsáveis e gestão completa do comercial.</p></div></div>
@@ -572,7 +582,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- DIFERENCIAL -->
 <section class="diff" id="diferencial">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Mais do que software</div><h2>Mais do que contratar uma plataforma, você recebe uma solução implantada para sua operação.</h2></div>
+    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Mais do que contratar uma plataforma, você recebe uma solução implantada para sua operação.</h2></div>
     <div class="process">
       <svg class="process-line" viewBox="0 0 2 500" preserveAspectRatio="none" style="position:absolute;left:24px;top:16px;bottom:16px;width:2px;height:calc(100% - 32px);"><line class="flow-line" x1="1" y1="0" x2="1" y2="500"/></svg>
       <div class="step reveal"><div class="step-num">01</div><div class="step-body"><h4>Entendemos sua empresa</h4><p>Atendimento, processo comercial, equipe, ferramentas, gargalos e objetivos.</p></div></div>
@@ -592,7 +602,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
   <div class="wrap">
     <div class="int-layout">
       <div class="reveal">
-        <div class="eyebrow">Integrações</div>
+        <div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div>
         <h2>Conectamos o IVE CRM às ferramentas que já fazem parte da sua operação.</h2>
         <p style="margin-top:16px;margin-bottom:28px;">Não entregamos só uma API disponível — nós fazemos a integração para você.</p>
         <div class="int-chips"><span class="chip">WhatsApp</span><span class="chip">Instagram</span><span class="chip">Google Calendar</span><span class="chip">ERPs</span><span class="chip">APIs externas</span><span class="chip">Bancos de dados</span><span class="chip">Planilhas</span><span class="chip">Sistemas internos</span></div>
@@ -610,7 +620,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- PLANOS -->
 <section class="plans" id="planos">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Planos</div><h2>Uma estrutura para cada estágio da sua automação.</h2>
+    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Uma estrutura para cada estágio da sua automação.</h2>
       <div class="price-anchor"><span class="from">a partir de</span><span class="val" id="priceValue">R$ 489</span><span class="per">/mês · 3 usuários incluídos</span></div>
       <div class="plan-toggle"><span class="plan-toggle-label active" id="labelMensal" onclick="togglePlan(false)">Mensal</span><button class="plan-toggle-switch" id="planSwitch" onclick="togglePlan()" aria-label="Alternar plano"></button><span class="plan-toggle-label" id="labelAnual" onclick="togglePlan(true)">Anual</span><span class="plan-toggle-badge">Economize 20%</span></div>
       <p>Valores completos e escopo de implantação são definidos após conversa de diagnóstico.</p>
@@ -628,7 +638,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- AUDIENCE -->
 <section class="audience">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Para quem é o IVE CRM</div><h2>Se sua operação se parece com alguma dessas situações, provavelmente conversamos.</h2></div>
+    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Se sua operação se parece com alguma dessas situações, provavelmente conversamos.</h2></div>
     <div class="audience-grid">
       <div class="audience-item"><span class="dot"></span>Empresas que atendem pelo WhatsApp</div>
       <div class="audience-item"><span class="dot"></span>Operações com uma ou mais pessoas no comercial</div>
@@ -646,7 +656,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <!-- PROVA -->
 <section class="proof">
   <div class="wrap">
-    <div class="section-head reveal"><div class="eyebrow">Prova e resultados</div><h2>Como a implantação muda a operação, na prática.</h2><p>Estrutura de case a ser preenchida com dados reais e autorizados.</p></div>
+    <div class="section-head reveal"><div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div><h2>Como a implantação muda a operação, na prática.</h2><p>Estrutura de case a ser preenchida com dados reais e autorizados.</p></div>
     <div class="case-card reveal perspective-card">
       <div class="case-col"><div class="eyebrow">Antes</div><p>[Problema real: demora no atendimento, desorganização, follow-up manual.]</p></div>
       <div class="case-col"><div class="eyebrow">O que a IVE implantou</div><p>[CRM + IA + automação + integrações + estruturação do processo.]</p></div>
@@ -661,7 +671,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
   <div class="wrap">
     <div class="qualify-grid">
       <div class="reveal">
-        <div class="eyebrow">Formulário de qualificação</div>
+        <div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div>
         <h2 style="margin-bottom:24px;">Fale sobre sua operação. A IA já começa a trabalhar.</h2>
         <div class="form-card glass">
           <div class="form-progress"><div class="form-progress-bar"><div class="form-progress-step active" id="prog1"></div><div class="form-progress-step" id="prog2"></div><div class="form-progress-step" id="prog3"></div></div><div class="form-progress-label"><span class="active" id="progLabel1">Seus dados</span><span id="progLabel2">Sua operação</span><span id="progLabel3">Necessidades</span></div></div>
@@ -696,7 +706,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
         </div>
       </div>
       <div class="reveal">
-        <div class="eyebrow">O que acontece depois</div>
+        <div class="eyebrow">IVE - INTELIGÊNCIA EM VENDAS</div>
         <h2 style="margin-bottom:24px;font-size:1.8rem;">O próprio formulário já é uma demonstração.</h2>
         <div class="journey">
           <div class="journey-step"><div class="journey-ico">01</div><p>Você envia e o IVE CRM registra o contato na hora.</p></div>
@@ -784,7 +794,7 @@ window.addEventListener('scroll',function(){document.getElementById('backToTop')
 window.addEventListener('scroll',function(){document.querySelector('header').style.background=window.scrollY>50?'#111D15':'#111D15';});
 
 // Typing Effect
-var fullTitle='Automação inteligente para Vendas e Atendimento';var ti=0;var tw=document.getElementById('typewriter');
+var fullTitle='CRM inteligente para Vendas e Atendimento';var ti=0;var tw=document.getElementById('typewriter');
 function typeTitle(){tw.textContent=fullTitle.substring(0,ti+1);ti++;if(ti<fullTitle.length)setTimeout(typeTitle,50);}
 typeTitle();
 
