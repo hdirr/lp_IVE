@@ -258,19 +258,6 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;background:#111D15;backdr
 .plans{background:linear-gradient(180deg,var(--paper-2),var(--paper));position:relative;overflow:hidden;}
 .plans::before{content:"";position:absolute;top:-200px;right:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(231,163,62,.06),transparent 70%);pointer-events:none;animation:orbFloat 12s ease-in-out infinite;}
 .plans::after{content:"";position:absolute;bottom:-200px;left:-200px;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(47,187,174,.05),transparent 70%);pointer-events:none;animation:orbFloat 10s ease-in-out infinite reverse;}
-.price-anchor{display:flex;align-items:baseline;gap:12px;margin-top:8px;margin-bottom:8px;flex-wrap:wrap;}
-.price-anchor .from{font-family:var(--font-mono);font-size:.85rem;color:var(--slate);}
-.price-anchor .val{font-family:var(--font-display);font-size:2.4rem;font-weight:700;color:var(--indigo);transition:all .3s ease;}
-.price-anchor .per{font-size:.92rem;color:var(--slate);}
-.plan-toggle{display:flex;align-items:center;gap:14px;margin-top:24px;margin-bottom:8px;}
-.plan-toggle-label{font-size:.88rem;font-weight:600;color:var(--slate);cursor:pointer;transition:color .2s ease;user-select:none;}
-.plan-toggle-label.active{color:var(--indigo);}
-.plan-toggle-switch{width:52px;height:28px;border-radius:999px;background:var(--line);border:none;cursor:pointer;position:relative;padding:3px;transition:background .3s ease;}
-.plan-toggle-switch::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.15);transition:transform .3s cubic-bezier(.4,0,.2,1);}
-.plan-toggle-switch.annual{background:var(--teal);}
-.plan-toggle-switch.annual::after{transform:translateX(24px);}
-.plan-toggle-badge{font-family:var(--font-mono);font-size:.65rem;font-weight:700;background:var(--teal-glow);color:var(--teal-deep);padding:4px 10px;border-radius:999px;animation:badgePulse 2s ease-in-out infinite;}
-@keyframes badgePulse{0%,100%{box-shadow:none;}50%{box-shadow:0 0 12px rgba(47,187,174,.3);}}
 .plan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;perspective:1000px;grid-auto-rows:1fr;}
 @media(max-width:1040px){.plan-grid{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:600px){.plan-grid{grid-template-columns:1fr;}}
@@ -664,9 +651,7 @@ header.scrolled{background:#111D15!important;box-shadow:0 4px 30px rgba(0,0,0,.3
 <section class="plans" id="planos">
   <div class="wrap">
     <div class="section-head reveal"><h2>Conheça nossos Agentes de IA</h2>
-      <p>Abaixo: planos a partir de R$ 489/mês.</p>
-      <div class="price-anchor"><span class="from">a partir de</span><span class="val" id="priceValue">R$ 489</span><span class="per">/mês · 3 usuários incluídos</span></div>
-      <div class="plan-toggle"><span class="plan-toggle-label active" id="labelMensal" onclick="togglePlan(false)">Mensal</span><button class="plan-toggle-switch" id="planSwitch" onclick="togglePlan()" aria-label="Alternar plano"></button><span class="plan-toggle-label" id="labelAnual" onclick="togglePlan(true)">Anual</span><span class="plan-toggle-badge">Economize 20%</span></div>
+      <p>Planos a partir de <strong style="color:var(--indigo);font-weight:700;">R$ 489/mês</strong></p>
       <p>Valores completos e escopo de implantação são definidos após conversa de diagnóstico.</p>
     </div>
     <div class="plan-grid" id="planGrid">
@@ -879,10 +864,6 @@ function handleFormSubmit(e){e.preventDefault();if(!validateStep(cur))return;var
 // Plan Animations
 var planObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var d=parseInt(e.target.dataset.delay)||0;setTimeout(function(){e.target.classList.add('in');},d);planObs.unobserve(e.target);}});},{threshold:.15,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.plan').forEach(function(p){planObs.observe(p);});
-
-// Plan Toggle
-var isAnnual=false;
-function togglePlan(fa){if(typeof fa==='boolean')isAnnual=fa;else isAnnual=!isAnnual;var sw=document.getElementById('planSwitch'),lm=document.getElementById('labelMensal'),la=document.getElementById('labelAnual'),p=document.getElementById('priceValue');sw.classList.toggle('annual',isAnnual);lm.classList.toggle('active',!isAnnual);la.classList.toggle('active',isAnnual);p.style.transition='transform .2s ease,opacity .2s ease';p.style.transform='translateY(-8px)';p.style.opacity='0';setTimeout(function(){p.textContent=isAnnual?'R$ 391':'R$ 489';p.style.transform='translateY(8px)';setTimeout(function(){p.style.transform='translateY(0)';p.style.opacity='1';},50);},200);}
 
 showStep(1);
 
